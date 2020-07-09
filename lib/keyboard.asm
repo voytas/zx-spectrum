@@ -70,7 +70,7 @@ KEY_SSHIFT  equ     #40    ; mask 01000000
 ; Modifies:
 ;   BC, DE, HL and A
 ; Returns:
-;   A = pressed key
+;   A = pressed key code
 ;
 @read_key:
         ld hl,key_map                   ; load the key mapping address
@@ -111,12 +111,12 @@ other_key:
         ld d,a
         ld a,e
         and #3F                         ; check if we have non-shift key already stored
-        jr nz,duplicate_key             ; and handle multiple key scenario
+        jr nz,multiple_keys             ; and handle multiple key scenario
         ld a,d
         or e                            ; now A = A | E
         ld e,a                          ; store new key code
         jr next_key                     ; and move to the next key
-duplicate_key:
+multiple_keys:
         ld e,KEY_NONE
         ret
 next_key:
