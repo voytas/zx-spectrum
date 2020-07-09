@@ -1,0 +1,36 @@
+{
+    "version": "0.2.0",
+    "configurations": [{
+        "type": "dezog",
+        "request": "launch",
+        "name": "DeZog",
+        "remoteType": "zsim",
+        "preLaunchTask": "build",
+        "zsim": {
+            "loadZxRom": true
+        },
+        "listFiles": [{
+            "path": "./output/test.lst",
+            "asm": "sjasmplus",
+            "mainFile": "test.asm"
+        }],
+        "startAutomatically": false,
+        "skipInterrupt": true,
+        "history": {
+            "reverseDebugInstructionCount": 10000,
+            "codeCoverageEnabled": true
+        },
+        "commandsAfterLaunch": [
+            //"-sprites",
+            //"-patterns"
+        ],
+        "disassemblerArgs": {
+            "esxdosRst": true
+        },
+        "rootFolder": "${workspaceFolder}",
+        //"topOfStack": "stack_top",
+        "load": "./output/test.sna",
+        "smallValuesMaximum": 513,
+        "tmpDir": ".tmp"
+    }]
+}

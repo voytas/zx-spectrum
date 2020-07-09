@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "sjasmplus --fullpath --lst=./output/test.lst test.asm",
+            "problemMatcher": ["$problem-matcher-sjasmplus"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

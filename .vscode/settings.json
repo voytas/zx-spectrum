@@ -1,0 +1,10 @@
+{
+    "cSpell.enableFiletypes": [
+        "asm-collection"
+    ],
+    "cSpell.dictionaryDefinitions": [
+        { "name": "sjasmplus", "path": "${workspaceFolder}/.vscode/sjasmplus.txt"},
+        { "name": "z80", "path": "${workspaceFolder}/.vscode/z80.txt"}
+    ],
+    "cSpell.dictionaries": ["sjasmplus", "z80"]
+}
