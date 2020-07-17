@@ -1,3 +1,5 @@
 endm
 endmodule
 savesna
+savetap
+zxspectrum
