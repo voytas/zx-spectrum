@@ -3,7 +3,7 @@
     "tasks": [{
         "label": "build",
         "type": "shell",
-        "command": "sjasmplus --fullpath --lst=./output/${fileBasenameNoExtension}.lst ${file}",
+        "command": "sjasmplus --fullpath --lst=./output/${fileBasenameNoExtension}.lst ${relativeFile}",
         "problemMatcher": ["$problem-matcher-sjasmplus"],
         "group": {
             "kind": "build",
