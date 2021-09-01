@@ -1,36 +1,63 @@
 {
     "version": "0.2.0",
-    "configurations": [{
+    "configurations": [
+    {
         "type": "dezog",
         "request": "launch",
-        "name": "DeZog",
+        "name": "Debug Internal",
         "remoteType": "zsim",
-        "preLaunchTask": "build",
         "zsim": {
-            "loadZxRom": true
+            "loadZxRom": true,
+            "zxBeeper": true,
+            "zxKeyboard": true,
+            "ulaScreen": true,
+            "zxBorderWidth": 20,
+            "vsyncInterrupt": true,
         },
-        "listFiles": [{
-            "path": "./output/${fileBasenameNoExtension}.lst",
-            "asm": "sjasmplus",
-            "mainFile": "${fileBasename}"
-        }],
-        "startAutomatically": false,
-        "skipInterrupt": true,
-        "history": {
-            "reverseDebugInstructionCount": 10000,
-            "codeCoverageEnabled": true
-        },
-        "commandsAfterLaunch": [
-            //"-sprites",
-            //"-patterns"
+        "sjasmplus": [
+            {
+                "path": "./output/${fileBasenameNoExtension}.sld",
+                "useFiles": true,
+                "asm": "sjasmplus",
+                "mainFile": "${fileBasenameNoExtension}.asm"
+            }
         ],
+        "startAutomatically": false,
         "disassemblerArgs": {
             "esxdosRst": true
         },
         "rootFolder": "${workspaceFolder}",
-        //"topOfStack": "stack_top",
         "load": "./output/${fileBasenameNoExtension}.sna",
-        "smallValuesMaximum": 513,
-        "tmpDir": ".tmp"
+        "preLaunchTask": "build"
+    },
+    {
+        "type": "dezog",
+        "request": "launch",
+        "name": "Debug ZEarUX",
+        "remoteType": "zrcp",
+        "zrcp": {
+            "hostname": "localhost",
+            "port": 10000,
+            "skipInterrupt": false,
+        },
+        "sjasmplus": [
+            {
+                "path": "./output/${fileBasenameNoExtension}.sld",
+                "useFiles": true,
+                "asm": "sjasmplus",
+                "mainFile": "${fileBasenameNoExtension}.asm"
+            }
+        ],
+        "startAutomatically": false,
+        "history": {
+            "reverseDebugInstructionCount": 10000,
+            "codeCoverageEnabled": true
+        },
+        "disassemblerArgs": {
+            "esxdosRst": true
+        },
+        "rootFolder": "${workspaceFolder}",
+        "load": "./output/${fileBasenameNoExtension}.sna",
+        "preLaunchTask": "build"
     }]
 }

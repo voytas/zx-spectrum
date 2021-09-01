@@ -2,4 +2,6 @@ endm
 endmodule
 savesna
 savetap
+sldopt
+wpmem
 zxspectrum
